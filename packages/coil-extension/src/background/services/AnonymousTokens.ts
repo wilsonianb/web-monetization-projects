@@ -12,13 +12,14 @@ const ANON_TOKEN_BATCH_SIZE = 10
 @injectable()
 export class AnonymousTokens extends anonymousTokens.AnonymousTokens {
   constructor(
-    @inject(tokens.CoilDomain) coilHost: string,
+    @inject(tokens.RedeemerDomain) redeemerHost: string,
+    @inject(tokens.SignerDomain) signerHost: string,
     @inject(Storage) storage: Storage,
     @logger('AnonymousTokens') debug: Logger
   ) {
     super({
-      redeemerUrl: coilHost + '/redeemer',
-      signerUrl: coilHost + '/issuer',
+      redeemerUrl: redeemerHost + '/redeemer',
+      signerUrl: signerHost + '/issuer',
       store: new TokenStore(storage),
       debug,
       batchSize: ANON_TOKEN_BATCH_SIZE

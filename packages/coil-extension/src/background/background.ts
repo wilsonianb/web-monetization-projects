@@ -4,7 +4,12 @@ import { Container } from 'inversify'
 import { GraphQlClient } from '@coil/client'
 import { makeLoggerMiddleware } from 'inversify-logger-middleware'
 
-import { API, COIL_DOMAIN } from '../webpackDefines'
+import {
+  API,
+  COIL_DOMAIN,
+  REDEEMER_DOMAIN,
+  SIGNER_DOMAIN
+} from '../webpackDefines'
 import { StorageService } from '../services/storage'
 import * as tokens from '../types/tokens'
 import { ClientOptions } from '../services/ClientOptions'
@@ -25,6 +30,8 @@ async function configureContainer(container: Container) {
   container.bind(Storage).toConstantValue(localStorage)
   container.bind(StorageService).to(BackgroundStorageService)
   container.bind(Container).toConstantValue(container)
+  container.bind(tokens.RedeemerDomain).toConstantValue(REDEEMER_DOMAIN)
+  container.bind(tokens.SignerDomain).toConstantValue(SIGNER_DOMAIN)
 
   container.bind(Stream).toSelf().inTransientScope()
 

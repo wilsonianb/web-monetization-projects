@@ -49,5 +49,5 @@ yarn get-btp-token
 ```bash
 yarn build
 python -m http.server 4000
-# open in an icognito window (extension disabled) http://localhost:4000/examples
+# open in an incognito window (extension disabled) http://localhost:4000/examples
 ```
