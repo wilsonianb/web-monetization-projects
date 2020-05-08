@@ -2685,7 +2685,7 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.12.38.tgz#58841a382f231ad005dbb935c36d44aa1118a26b"
   integrity sha512-75eLjX0pFuTcUXnnWmALMzzkYorjND0ezNEycaKesbUBg9eGZp4GHPuDmkRc4mQQvIpe29zrzATNRA6hkYqwmA==
 
-"@types/node@^10.14.22", "@types/node@^10.5.1", "@types/node@^10.7.1":
+"@types/node@^10.14.22", "@types/node@^10.7.1":
   version "10.17.19"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.17.19.tgz#1d31ddd5503dba2af7a901aafef3392e4955620e"
   integrity sha512-46/xThm3zvvc9t9/7M3AaLEqtOpqlYYYcCZbpYVAQHG20+oMZBkae/VMrn4BTi6AJ8cpack0mEXhGiKmDNbLrQ==
@@ -8708,7 +8708,16 @@ ilp-logger@^1.1.3, ilp-logger@^1.2.1:
     debug "^4.1.0"
     supports-color "^5.5.0"
 
-ilp-packet@^3.0.8, ilp-packet@^3.0.9:
+ilp-logger@^1.3.0-alpha.1:
+  version "1.3.0-alpha.1"
+  resolved "https://registry.yarnpkg.com/ilp-logger/-/ilp-logger-1.3.0-alpha.1.tgz#d1001f585d06bdc16825bdb9f1ad07477ed38b94"
+  integrity sha512-3AtgRPDB2AP3lFXfYe63ypCLs7KJjx2KQ3jQJLwNnoohPIUUcNzL6QFl+Xo43IMvS5Y5Dws4++cthM0XI4cfBQ==
+  dependencies:
+    "@types/debug" "^0.0.31"
+    debug "^4.1.0"
+    supports-color "^5.5.0"
+
+ilp-packet@^3.0.9:
   version "3.0.9"
   resolved "https://registry.yarnpkg.com/ilp-packet/-/ilp-packet-3.0.9.tgz#ff3d619bba0c069f540b9e57a91a5afbf5d42af6"
   integrity sha512-tw4uuLQDIJSMFLmNSbQ1ImeW/Yfb3p+naVJe3ghdPwJQWT3Qd48ghAYyz5oo8Oa3evw6TBipNIV0iO+Mz5Zy+g==
@@ -8724,7 +8733,7 @@ ilp-packet@^3.1.0-alpha.0:
     extensible-error "^1.0.2"
     oer-utils "^5.1.0-alpha.0"
 
-ilp-plugin-btp@1.4.2, ilp-plugin-btp@^1.3.5:
+ilp-plugin-btp@1.4.2, ilp-plugin-btp@^1.2.1:
   version "1.4.2"
   resolved "https://registry.yarnpkg.com/ilp-plugin-btp/-/ilp-plugin-btp-1.4.2.tgz#1fd975c10dce1f97a14d888ef0db24742641b150"
   integrity sha512-hIyObSH7JnxITVhs+fWKgm8gG60zVM4yyj4qqUpa2S0CZLM0uFFfdJ+VEBIFInw1c1s0l8+WKP8OzuYrCkODDw==
@@ -8738,24 +8747,15 @@ ilp-plugin-btp@1.4.2, ilp-plugin-btp@^1.3.5:
     ilp-logger "^1.1.3"
     ws "^6.0.0"
 
-ilp-plugin-mini-accounts@^4.2.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/ilp-plugin-mini-accounts/-/ilp-plugin-mini-accounts-4.2.0.tgz#cf4a84e2db91a0f70e7aabc46dd05bfd659bcc91"
-  integrity sha512-jw4TafgPilHuhxJKOfJQvXam0XgXobhDd5R+Qef+KRb8VIRkUvo1HpPVoqPwejxD0wUwkNCMdH+LJoy3m8bHAw==
+ilp-plugin@^3.4.1:
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/ilp-plugin/-/ilp-plugin-3.4.1.tgz#f667e790335095028a0eac59e0b8fdc613d2b979"
+  integrity sha512-tNI3W4aCa+1A6neweFHyVcg6MOnzS3c6KjotjKV5z/bIG/KEXxvy286cJKIGwCgHluDbY2VXyKDWOq/zE6oRmg==
   dependencies:
-    "@types/node" "^10.5.1"
-    "@types/ws" "^6.0.0"
-    btp-packet "^2.2.0"
-    ilp-logger "^1.1.3"
-    ilp-packet "^3.0.8"
-    ilp-plugin-btp "^1.3.5"
-    ilp-protocol-ildcp "^2.0.1"
-    ilp-store-memory "^1.0.0"
-    ilp-store-wrapper "^2.0.0"
-    int64 "0.0.5"
-    ws "^6.0.0"
+    ilp-logger "^1.3.0-alpha.1"
+    ilp-plugin-btp "^1.2.1"
 
-ilp-protocol-ildcp@^2.0.1, ilp-protocol-ildcp@^2.1.4:
+ilp-protocol-ildcp@^2.1.4:
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/ilp-protocol-ildcp/-/ilp-protocol-ildcp-2.1.4.tgz#6edb5f0d99e33e7b0df9c105ca26037d229d32c8"
   integrity sha512-+DUJlbacQTKrI+Pmnz/PH9luX78dOiRTHG+xQzm3MXD0PO0oYLt35t9d+nfzSyba0S+4QQEnAOv8eEnFZwcW0A==
@@ -8789,16 +8789,6 @@ ilp-protocol-stream@2.5.0, ilp-protocol-stream@^2.5.0:
     long "^4.0.0"
     oer-utils "^5.0.1"
     uuid "^3.4.0"
-
-ilp-store-memory@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/ilp-store-memory/-/ilp-store-memory-1.0.0.tgz#53befe9941a776c5357c15d81d97875133141d6c"
-  integrity sha512-OxGD//mRTmw2zauj2ZrDvPcozfl8WHJPOgpwrjYc9i+nBxECwIJZKd8JxHAUwf/lQuRAoyY4rxPq0hZ6rpcIvA==
-
-ilp-store-wrapper@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/ilp-store-wrapper/-/ilp-store-wrapper-2.0.0.tgz#9b483c842510b695b69f3551f4f1bfa3b6292de7"
-  integrity sha512-blCYuzHISjUc7JUua48yl39WmWiuwQaxVi4Bx/HFIgbOgprsfPJXHJqy3YpCBvR4aEL2i2l5aSq4C9trUbFXMA==
 
 immediate@~3.0.5:
   version "3.0.6"
@@ -8985,11 +8975,6 @@ inquirer@^7.0.0:
     string-width "^4.1.0"
     strip-ansi "^6.0.0"
     through "^2.3.6"
-
-int64@0.0.5:
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/int64/-/int64-0.0.5.tgz#2539a6fceeb9dcc119bb45438a7210b53cc6fc4a"
-  integrity sha1-JTmm/O653MEZu0VDinIQtTzG/Eo=
 
 internal-ip@^4.3.0:
   version "4.3.0"
