@@ -29,30 +29,17 @@ const Index = hot(() => {
   const [useReceipts, setUseReceipts] = useState<boolean>(true)
   const toggleReceipts = () => setUseReceipts(!useReceipts)
   useEffect(() => {
-    if (state.requestId) {
-      setInterval(async () => {
-        const resp = await fetch(
-          `http://localhost:4001/balance/${state.requestId}`
-        )
-        if (resp.ok) {
-          const body = await resp.json()
-          setServerBalance(body.balance)
-        }
-      }, 1e3)
-    }
-  }, [state.requestId])
-  useEffect(() => {
     async function submitReceipt(requestId: string, receipt: string) {
       const resp = await fetch(
-        `http://localhost:4001/balance/${requestId}:creditReceipt`,
+        `http://localhost:4002/balances/${requestId}:creditReceipt`,
         {
           method: 'POST',
           body: receipt
         }
       )
       if (resp.ok) {
-        const body = await resp.json()
-        setServerBalance(body.balance)
+        const balance = await resp.json()
+        setServerBalance(balance)
       }
     }
     if (counter.requestId && counter.receipt) {
@@ -97,7 +84,7 @@ const Index = hot(() => {
         (React) IfWebMonetizationPending:{' '}
         <IfWebMonetizationPending>Yes</IfWebMonetizationPending>
       </pre>
-      <pre>(Server Poll=1s) Balance: {serverBalance}</pre>
+      <pre>(Receipt Verifier) Balance: {serverBalance}</pre>
     </div>
   )
 })
