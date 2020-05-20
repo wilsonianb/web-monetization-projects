@@ -7,7 +7,13 @@ import {
   Server
 } from 'ilp-protocol-stream'
 import MiniAccountsPlugin from 'ilp-plugin-mini-accounts'
-import { SPSPResponse } from '@web-monetization/types'
+// import { SPSPResponse } from '@web-monetization/types'
+
+interface SPSPResponse {
+  destination_account: string
+  shared_secret: string
+  receipts_enabled?: boolean
+}
 
 import * as tokens from './tokens'
 import { dbg } from './logging'
